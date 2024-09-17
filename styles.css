@@ -826,7 +826,7 @@ body {
 
     .footer__link {
         margin-bottom: 1em;
-        overflow-wrap: break-word;
+        overflow: hidden;
         text-align: center; /* Center the email address */
         max-width: 100%; /* Prevent it from overflowing the container */
         font-size: 0.7em;
