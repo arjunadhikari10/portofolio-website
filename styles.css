@@ -59,7 +59,7 @@ body {
 }
 #arjun-container {
     min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("IMG_7308.HEIC");
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("IMG_7308.jpg"); /*no kaam yesko*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -67,7 +67,23 @@ body {
     position: relative
     
 }
+/*gpt*/
+#arjun-container {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
 
+.responsive-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Keep it behind the content */
+}
+/*gpt*/
 section {
     padding: 5em 2em;
 }
@@ -231,10 +247,8 @@ header {
     position: fixed;
     right: 1em;
     top: 1em;
-    
-    z-index: 1000;
     margin-right: 40px;
-    
+    z-index: 2000;
 } 
 .mode-toggle { 
     padding: 1.5em;
@@ -242,11 +256,25 @@ header {
     border: 0;
     cursor: pointer;
     position: fixed;
-    right: 1em;
-    top: 49em;
+    right: -1em ;
+    top: 0;
     z-index: 1000;
     margin-right: 10px;
-    color: var(--clr-accent); }
+    color: white; 
+}
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .mode-toggle {
+        right: -1em; /* Position for larger screens */
+    }
+}
+
+/* Media query for small screens */
+@media (max-width: 767px) {
+    .mode-toggle {
+        right: -0.5em; /* Adjust position for small screens */
+    }
+}
 
 .mode-toggle:hover{
     transform: scale(1.1);
@@ -312,8 +340,8 @@ body {
 .hamburger::before,
 .hamburger::after {
     background: white;
-    width: 2em;
-    height: 3px;
+    width: 1.7em;
+    height: 3.5px;
     border-radius: 1em;
     transition: transform 250ms ease-in-out;
 }
@@ -833,6 +861,7 @@ body {
 .education-experience{
     padding-bottom: 150px;
     background-color: #1b1919;
+    
 }
 .school {
     font-style: italic;
@@ -950,6 +979,39 @@ body {
     line-height: 1; /* Adjust line height if needed */
     
 }
+
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .education-experience {
+        padding-bottom: 80px; /* Adjust bottom padding for smaller screens */
+    }
+
+    .card {
+        width: 90%; /* Ensure cards take up more width on small screens */
+        padding: 20px; /* Reduce padding for better spacing */
+        margin: 20px auto; /* Center cards and adjust margin */
+        position: relative;
+    }
+
+    .card:nth-child(even) {
+        margin-left: 0; /* Remove margin-left for even cards */
+    }
+
+    .card:nth-child(odd) {
+        margin-right: 0; /* Remove margin-right for odd cards */
+    }
+
+    .card:nth-child(even):before {
+        left: 0; /* Adjust position of the dot for even cards */
+    }
+
+    .card:nth-child(odd):before {
+        right: 0; /* Adjust position of the dot for odd cards */
+    }
+}
+
+
   
    /* USING GPT GAMING EFFECT */
   
@@ -1015,7 +1077,7 @@ body {
   /* Fixed right-side navigation */
 .fixed-nav {
     position: fixed;
-    top: 50%;
+    top: 65%;
     right: 0;
     transform: translateY(-50%);
     background-color: #333;
@@ -1093,12 +1155,12 @@ body {
 
 .toggle-nav__list {
     position: fixed;
-    top: -11rem;
+    top: 3em;
     right: 0;
     background-color: #444;
     padding: 1em; 
     border-radius: 10px 0 0 10px;
-     z-index: 999;
+     z-index: 1000;
      list-style-type: none; /* Removes dots from the list */
     
 }
@@ -1137,26 +1199,6 @@ body {
 }
 
 
-/*gpt*/
-@media (max-width: 600px) {
-    .fixed-nav__list {
-        display: none; /* Hide the fixed nav items on small screens */
-    }
-
-    .nav-toggle {
-        display: block; /* Show the toggle button on small screens */
-    }
-
-    .toggle-nav__list {
-        display: block; /* Display the toggle nav items on small screens */
-        position: absolute;
-        top: 60px; /* Adjust as needed */
-        right: 0;
-        background: #333;
-        width: 200px; /* Adjust as needed */
-        z-index: 1000;
-    }
-}
 
 /* Basic styling for bubble text */
 .bubble-text {
@@ -1213,3 +1255,65 @@ body {
         opacity: 0;
     }
 }
+
+
+
+
+
+/* toggle ra hidden duitai laai toggle ma rakhna in small screen*/
+/* For smaller screens */
+/* Large screens (768px and up) */
+@media (min-width: 768px) {
+    .toggle-nav__list .toggle-nav__item:nth-child(-n+3) { /* First 3 items (Home, My Work, Services) */
+        display: none; /* Hide these items on large screens */
+    }
+}
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Hide the fixed navigation on small screens */
+    .fixed-nav {
+        display: none;
+    }
+
+    /* Show the full toggle-nav list */
+    .toggle-nav__list {
+        display: none; /* Initially hidden */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        background-color: #444;
+        padding: 1em;
+        border-radius: 0 0 10px 10px;
+        z-index: 1000;
+        list-style-type: none;
+        overflow-y: auto;
+        height: 100vh;
+    }
+
+    /* Show the toggle-nav__list when nav is open */
+    .nav-open .toggle-nav__list {
+        display: block;
+    }
+
+    /* Styling for toggle-nav__items */
+    .toggle-nav__item {
+        margin-bottom: 1em;
+    }
+
+    .toggle-nav__link {
+        display: block;
+        padding: 1em;
+        color: white;
+        text-align: center;
+        font-size: 1.2rem;
+        background-color: #333;
+        border-radius: 8px;
+    }
+
+    .toggle-nav__link:hover {
+        background-color: #555;
+    }
+}
+
