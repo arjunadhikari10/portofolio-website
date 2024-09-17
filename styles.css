@@ -803,7 +803,6 @@ body {
 
   .footer a.footer__link {
     color: white; /* Change color to white */
-    margin: 0 .5em;
     font-size: 1.8rem;
   text-shadow: 2px 2px 1px #1f1f1f;
   transition: transform 0.3s ease-out;
