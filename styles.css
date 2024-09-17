@@ -56,32 +56,31 @@ body {
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     line-height: 1.6;
+    overflow-x: hidden;
 }
-#arjun-container {
-    min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("IMG_7308.jpg"); /*no kaam yesko*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* background-attachment: fixed; */
-    position: relative
-    
-}
+
 /*gpt*/
+
+
 #arjun-container {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("IMG_7308.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 
 .responsive-bg-image {
-    width: 100%;
-    height: 100%;
+    
     object-fit: cover; /* Ensures the image covers the container */
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1; /* Keep it behind the content */
+    width: 100vw; /* Set the image width to 100% of the viewport */
+    height: auto; /* Adjust the height automatically */
 }
 /*gpt*/
 section {
@@ -438,13 +437,22 @@ body {
         font-size: 1.2rem;
     }
 
-    .large-font pre {
-        font-size: 3rem; /* Larger font size for name on bigger screens */
+    .engineering-hover {
+        font-size: 2rem; /* Larger font size for name on bigger screens */
+        margin: auto;
+        
     }
 
     .average-font {
         font-size: 1.5rem;
     }
+}
+.engineering-hover pre {
+    white-space: normal; /* Ensure the text can wrap normally */
+    font-size: 2.5rem; /* Adjust font size for smaller screens */
+    line-height: 1.2; /* Adjust line height for better spacing */
+    margin: 0; /* Remove any extra margins */
+    padding: 0; /* Remove any extra padding */
 }
 
 @media (max-width: 600px) {
@@ -457,7 +465,7 @@ body {
         font-size: 0.9rem; /* Smaller text on narrow screens */
     }
 
-    .large-font pre {
+    .engineering-hover  {
         font-size: 1.8rem; /* Smaller font for name on smaller screens */
     }
 
