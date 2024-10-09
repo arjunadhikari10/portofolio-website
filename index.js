@@ -52,3 +52,26 @@ nameElement.addEventListener('mouseleave', () => {
 
 
 
+let currentIndex = 0;
+const images = document.querySelectorAll('.article-image');
+
+function showNextImage() {
+    // Hide current image
+    images[currentIndex].style.display = 'none';
+    
+    // Update index to next image
+    currentIndex = (currentIndex + 1) % images.length;
+
+    // Show next image
+    images[currentIndex].style.display = 'block';
+}
+
+// Show the first image initially
+images[currentIndex].style.display = 'block';
+
+// Change image every 3 seconds (3000 milliseconds)
+setInterval(showNextImage, 3000);
+
+
+
+
