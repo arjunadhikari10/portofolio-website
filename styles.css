@@ -1413,7 +1413,7 @@ body {
 .article-title {
     font-size: 1.5rem;
     color: var(--clr-light);
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 .article-excerpt {
