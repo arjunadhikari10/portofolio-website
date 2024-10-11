@@ -697,7 +697,7 @@ body {
 /* Contact Section - Flexbox for layout */
 .contact-section {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: nowrap; /* Allow wrapping on smaller screens */
     justify-content: space-between; /* Space between form and map */
     padding: 50px;
     background-color: #423a3a;
